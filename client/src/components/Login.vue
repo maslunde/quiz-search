@@ -4,12 +4,12 @@
       <v-flex xs6 offset-xs3>
         <div class="white elevation-2">
           <v-toolbar flat dense class="cyan" dark>
-            <v-toolbar-title>Register</v-toolbar-title>
+            <v-toolbar-title>Login</v-toolbar-title>
           </v-toolbar>
           <div class="pl-4 pr-4 pt-2 pb-2">
             <form
-              name="quiz-search-register-form"
-              autocomplete="off">
+              name="quiz-search-login-form"
+              autocomplete="on">
               <v-text-field
                     type="email"                  
                     label="Email"
@@ -20,16 +20,15 @@
                     type="password"                  
                     label="password"
                     v-model="password"
-                    autocomplete="new-password"
               ></v-text-field>
             </form>
             <br>
             <div class="error" v-html="error"></div>
             <v-btn 
               class="cyan" dark
-              @click="register">
-              Register
-            </v-btn>                      
+              @click="login">
+              Login
+            </v-btn>
           </div>  
         </div>
       </v-flex>
@@ -48,9 +47,9 @@ export default {
     }
   },
   methods: {
-    async register (value) {
+    async login (value) {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
@@ -67,6 +66,6 @@ export default {
 <style scoped>
 
 .error {
-  color: red;
+  color: white;
 }
 </style>

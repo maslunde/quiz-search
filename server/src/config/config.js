@@ -1,5 +1,5 @@
 module.exports = {
-    port: process.env.PORT || 8083,
+    port: process.env.PORT || 8085,
     db: {
         database: process.env.DB_NAME || 'quizsearch',
         user: process.env.DB_USER || 'quizsearch',
@@ -9,5 +9,8 @@ module.exports = {
           host: process.env.HOST || 'localhost',
           storage: './quizsearch.sqlite'
         }
+    },
+    authentication: {
+        jwtSecret: process.env.JWT_SECRET || 'secret'
     }
 }
